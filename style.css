@@ -1,0 +1,79 @@
+/* Register Screen Font */
+@font-face {
+  font-family: "DS-Digital";
+  src: url("./fonts/DS-DIGI.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "DS-Digital", sans-serif;
+}
+.calculator {
+  width: 21rem;
+  background-color: hsl(26, 6%, 67%);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.377) 10px 10px 8px,
+    #ffffff 1.5px 1.5px 2px 0px inset, #c7c3c0 -3.2px -3.2px 8px 0px inset;
+}
+.screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20rem;
+  height: 6.25rem;
+  background-color: #171717;
+  border-radius: 5px;
+  border: 3px solid #333;
+  margin: 5px;
+  overflow: hidden;
+}
+.screen-text {
+  font-family: "DS-Digital";
+  font-size: 3.5rem;
+  color: #37f713;
+}
+.control-panel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6.25em;
+  height: 6.25em;
+  background-color: #171717;
+  border-radius: 5px;
+  border: 3px solid #333;
+  font-weight: bolder;
+}
+.button-gray {
+  border-radius: 10px;
+  outline: none;
+  background-color: #c7c3c0;
+  box-shadow: rgba(0, 0, 0, 0.377) 1px 1px 8px,
+    #ffffff 1.5px 1.5px 2px 0px inset, #c7c3c0 -3.2px -3.2px 8px 0px inset;
+  cursor: pointer;
+  font-family: Montserrat;
+  transition: 0.1s ease-in-out;
+}
+.button-red {
+  border-radius: 10px;
+  outline: none;
+  background-color: #d42a02;
+  box-shadow: rgba(0, 0, 0, 0.377) 1px 1px 8px, #fb702c 2px 2px 10px 0px inset,
+    #d42a02 -4px -4px 1px 0px inset;
+  cursor: pointer;
+  font-family: Montserrat;
+  transition: 0.1s ease-in-out;
+}
+.button-gray:active,
+.button-red:active {
+  box-shadow: rgba(0, 0, 0, 0.377) 0px 0px 0px, inset 0.5px 0.5px 4px #000000,
+    #c7c3c0 -1px -1px 8px 0px inset;
+}
