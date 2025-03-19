@@ -1,4 +1,6 @@
-/* Register Screen Font */
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
 @font-face {
   font-family: "DS-Digital";
   src: url("./fonts/DS-DIGI.woff2") format("woff2");
@@ -7,9 +9,16 @@
 }
 
 body {
-  font-family: "DS-Digital", sans-serif;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100dvh;
 }
 .calculator {
+  font-family: "DS-Digital", sans-serif;
   width: 21rem;
   background-color: hsl(26, 6%, 67%);
   padding: 2rem;
@@ -72,8 +81,19 @@ body {
   font-family: Montserrat;
   transition: 0.1s ease-in-out;
 }
+.button-blue {
+  border-radius: 10px;
+  outline: none;
+  background-color: #0298d4;
+  box-shadow: rgba(0, 0, 0, 0.377) 1px 1px 8px, #2cfbd8 2px 2px 10px 0px inset,
+    #0298d4 -4px -4px 1px 0px inset;
+  cursor: pointer;
+  font-family: Montserrat;
+  transition: 0.1s ease-in-out;
+}
 .button-gray:active,
-.button-red:active {
+.button-red:active,
+.button-blue:active {
   box-shadow: rgba(0, 0, 0, 0.377) 0px 0px 0px, inset 0.5px 0.5px 4px #000000,
     #c7c3c0 -1px -1px 8px 0px inset;
 }
