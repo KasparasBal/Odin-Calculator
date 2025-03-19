@@ -1,3 +1,4 @@
+//Declarations
 const screenText = document.querySelector(".screen-text");
 const screen = document.querySelector(".screen");
 const numberButtons = document.querySelectorAll(".number-button");
@@ -6,13 +7,13 @@ const equalButton = document.getElementById("equal");
 const deleteButton = document.getElementById("delete");
 const clearButton = document.getElementById("clear");
 
-// operator-button
-
 let number1 = "";
 let number2 = "";
 let operator = "";
 let answer = "";
+let operatorIndex = "";
 
+//Operation Functions
 const add = (a, b) => {
   return a + b;
 };
@@ -63,6 +64,7 @@ function operate(num1, operator, num2) {
   return answer;
 }
 
+//Event Listeners
 numberButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     let buttonText = e.target.value;
@@ -79,26 +81,39 @@ operatorButtons.forEach((button) => {
     let operatorValue = e.target.value;
     operator = operatorValue;
     if (
-      !screenText.textContent.includes("+") &&
+      !screenText.textContent.includes(operator) &&
       screenText.textContent.length > 0
     ) {
       screenText.textContent += operatorValue;
+    }
+
+    if (
+      screenText.textContent.includes(operator) &&
+      screenText.textContent.substring(operatorIndex + 1).length != 0
+    ) {
+      operatorIndex = screenText.textContent.indexOf(operator);
+      number1 = screenText.textContent.substring(0, operatorIndex);
+      number2 = screenText.textContent.substring(operatorIndex + 1);
+      answer = operate(parseFloat(number1), operator, parseFloat(number2));
+      answer.length > 8
+        ? (screenText.textContent = answer.toFixed(3))
+        : (screenText.textContent = answer);
+      number1 = answer;
+      number2 = "";
     }
   });
 });
 
 equalButton.addEventListener("click", () => {
   if (screenText.textContent.includes(operator)) {
-    let operatorIndex = screenText.textContent.indexOf(operator);
+    operatorIndex = screenText.textContent.indexOf(operator);
     number1 = screenText.textContent.substring(0, operatorIndex);
     number2 = screenText.textContent.substring(operatorIndex + 1);
   }
   answer = operate(parseFloat(number1), operator, parseFloat(number2));
-  if (answer.length > 8) {
-    screenText.textContent = answer.toFixed(3);
-  } else {
-    screenText.textContent = answer;
-  }
+  answer.length > 8
+    ? (screenText.textContent = answer.toFixed(3))
+    : (screenText.textContent = answer);
 });
 
 deleteButton.addEventListener("click", () => {
